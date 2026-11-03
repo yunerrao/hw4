@@ -1,0 +1,42 @@
+---
+title: "Homework: Review the attribution of sources discussions"
+author: "Yuner Rao"
+format:
+  html:
+    self-contained: true  
+    code-fold: true       
+    code-summary: "Show the code"
+---
+
+## GITHUB LINK:
+
+<https://github.com/yunerrao/hw4>
+
+## Problem 1 (a)
+
+```{r}
+#import dataset and take a brief look at it
+library(tidyverse)
+nzge <- readRDS("~/r学习/hw4/nzge.rds")
+glimpse(nzge)
+names(nzge)
+unique(nzge$voting_type)
+# gruop the dataset
+q1 <- nzge %>%
+  group_by(election_year, voting_type) %>%
+  summarise(
+    total_votes = sum(votes),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(total_votes))
+
+print(q1, n = Inf)
+
+```
+
+According to group_by,we can calculate the total votes of each party and candidate yearly.
+
+## Problem 1 (a)
+
+```{}
+```
